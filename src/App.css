@@ -1,1 +1,17 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: lausanne-regular;
+  src: url(../public/fonts/Lausanne-300.woff2);
+}
+
+@font-face {
+  font-family: lausanne-medium;
+  src: url(../public/fonts/Lausanne-500.woff2);
+}
+
+@theme inline {
+  --font-lausanne-regular: lausanne-regular;
+  --font-lausanne-medium: lausanne-medium;
+  --color-primary: #d3fd50;
+}
