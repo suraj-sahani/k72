@@ -1,12 +1,16 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import Home from "./routes/home";
+import Agents from "./routes/agents";
+import Projects from "./routes/projects";
 
 function App() {
   return (
-    <>
-      <div className="h-screen w-full bg-gray-300 text-4xl flex items-center justify-center">
-        Hello
-      </div>
-    </>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/agents" element={<Agents />} />
+      <Route path="/projects" element={<Projects />} />
+    </Routes>
   );
 }
 
