@@ -10,10 +10,10 @@ const FooterLinks = () => {
         Projects
       </Link>
       <Link
-        to="/agents"
+        to="/agence"
         className="text-[6.5vw] hover:text-primary hover:border-primary uppercase border-[3px] leading-[5vw] border-white rounded-full px-[0.3em] transition-colors duration-100 ease-in pb-0 pt-[0.22em]"
       >
-        Agents
+        Agence
       </Link>
     </div>
   );
