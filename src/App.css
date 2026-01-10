@@ -15,3 +15,8 @@
   --font-lausanne-medium: lausanne-medium;
   --color-primary: #d3fd50;
 }
+
+html::selection {
+  background-color: var(--color-primary);
+  color: black;
+}

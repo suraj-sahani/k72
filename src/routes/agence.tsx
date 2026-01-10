@@ -36,6 +36,11 @@ export default function Agence() {
         start: "top 30%",
         end: "top -60%",
         pin: true,
+        pinSpacing: true,
+        pinReparent: true,
+        pinType: "transform",
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
         scrub: true,
         onUpdate: (self) => {
           const progress = self.progress;
