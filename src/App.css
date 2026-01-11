@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @font-face {
   font-family: lausanne-regular;
@@ -19,4 +19,59 @@
 html::selection {
   background-color: var(--color-primary);
   color: black;
+}
+
+@layer utilities {
+  .nav-link {
+    @apply relative w-full cursor-pointer border-t uppercase;
+  }
+
+  .nav-link:last-of-type {
+    @apply border-b;
+  }
+
+  .nav-marquee {
+    @apply bg-primary absolute flex h-full w-full flex-nowrap gap-4 overflow-auto text-black!;
+  }
+
+  .nav-marquee-item {
+    @apply flex w-full items-center gap-2 px-2;
+  }
+
+  .nav-marquee-item > h2 {
+    @apply pt-8 text-[8vw] leading-[0.8em] whitespace-nowrap;
+  }
+
+  .nav-link > h2 {
+    @apply pt-8 text-[8vw] leading-[0.8em] whitespace-nowrap;
+  }
+
+  .nav-link .nav-marquee-item > img {
+    @apply h-[6vw] w-[12vw] rounded-full object-cover;
+  }
+}
+
+.moveX {
+  animation-name: marquee-animation;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.moveLink {
+  opacity: 0;
+  transition: all ease 0.3s;
+}
+
+.link:hover .moveLink {
+  opacity: 1;
+}
+
+@keyframes marquee-animation {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
 }

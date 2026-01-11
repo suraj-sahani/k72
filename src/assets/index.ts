@@ -16,6 +16,13 @@ import Agence6Main from "./agence/agence_6.jpg";
 import Agence7Main from "./agence/agence_7.jpg";
 import Agence8Main from "./agence/agence_8.jpg";
 
+import NavProjectThumb1 from "./nav/project_thumb.png";
+import NavProjectThumb2 from "./nav/project_thumb_2.jpg";
+import NavAgenceThumb1 from "./nav/agence_thumb.jpg";
+import NavAgenceThumb2 from "./nav/agence_thumb_2.jpg";
+import NavBlogThumb1 from "./nav/blog_thumb.jpg";
+import NavBlogThumb2 from "./nav/blog_thumb_2.gif";
+
 export {
   Agence1Thumb,
   Agence2Thumb,
@@ -33,4 +40,10 @@ export {
   Agence6Main,
   Agence7Main,
   Agence8Main,
+  NavProjectThumb1,
+  NavProjectThumb2,
+  NavAgenceThumb1,
+  NavAgenceThumb2,
+  NavBlogThumb1,
+  NavBlogThumb2,
 };
