@@ -17,62 +17,6 @@ const NavDrawer = () => {
   const drawerRef = useRef<HTMLDivElement>(null)
   const linkContainerRef = useRef<HTMLDivElement>(null)
 
-  function gsapAnimation() {
-    const tl = gsap.timeline()
-    tl.to('.navDrawer', {
-      display: 'block',
-    })
-    tl.to('.stairing', {
-      delay: 0.2,
-      height: '100%',
-      stagger: {
-        amount: -0.3,
-      },
-    })
-    tl.to('.link', {
-      opacity: 1,
-      rotateX: 0,
-      stagger: {
-        amount: 0.3,
-      },
-    })
-    tl.to('.navlink', {
-      opacity: 1,
-    })
-  }
-  function gsapAnimationReverse() {
-    const tl = gsap.timeline()
-    tl.to('.link', {
-      opacity: 0,
-      rotateX: 90,
-      stagger: {
-        amount: 0.1,
-      },
-    })
-    tl.to('.stairing', {
-      height: 0,
-      stagger: {
-        amount: 0.1,
-      },
-    })
-    tl.to('.navlink', {
-      opacity: 0,
-    })
-    tl.to('.navDrawer', {
-      display: 'none',
-    })
-  }
-
-  useGSAP(
-    function () {
-      if (navOpen) {
-        gsapAnimation()
-      } else {
-        gsapAnimationReverse()
-      }
-    },
-    [navOpen]
-  )
   return (
     <div
       ref={drawerRef}
