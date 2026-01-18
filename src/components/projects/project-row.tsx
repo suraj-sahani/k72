@@ -1,44 +1,24 @@
-import { useGSAP } from '@gsap/react'
-import { useRef } from 'react'
-import ProjectCard from './project-card'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/all'
+import { useRef } from 'react'
+import type { Project } from '../../lib/types'
+import ProjectCard from './project-card'
 gsap.registerPlugin(ScrollTrigger)
 type Props = {
-  left: string
-  right: string | null
+  left: Project
+  right: Project | null
 }
 
 const ProjectRow = ({ left, right }: Props) => {
   const rowRef = useRef<HTMLDivElement>(null)
 
-  useGSAP(() => {
-    gsap.fromTo(
-      rowRef.current,
-      { height: 100 }, // initial height
-      {
-        height: 800, // expanded height
-        ease: 'none',
-        scrollTrigger: {
-          trigger: rowRef.current, // each row triggers itself
-          start: 'top 90%', // when row enters viewport
-          end: 'top 10%', // when row reaches near top
-          scrub: true,
-          markers: true, // for debugging
-          invalidateOnRefresh: true, // fixes rows jumping to full height
-        },
-      }
-    )
-  }, [])
-
   return (
     <div
       ref={rowRef}
-      className="flex gap-2 overflow-hidden"
-      style={{ height: 200 }}
+      className="flex h-full min-h-150 flex-col gap-12 overflow-hidden md:h-50 md:flex-row md:gap-2"
     >
-      <ProjectCard src={left} />
-      {right && <ProjectCard src={right} />}
+      <ProjectCard item={left} />
+      {right && <ProjectCard item={right} />}
     </div>
   )
 }
