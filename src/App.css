@@ -53,7 +53,14 @@ html::selection {
 
 .moveX {
   animation-name: marquee-animation;
-  animation-duration: 10s;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.moveXReverse {
+  animation-name: marquee-animation-reverse;
+  animation-duration: 20s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
@@ -69,9 +76,20 @@ html::selection {
 
 @keyframes marquee-animation {
   from {
-    transform: translateX(0);
+    transform: translate3d(0,0,0);
   }
   to {
-    transform: translateX(-100%);
+    transform: translate3d(-100%,0,0);
   }
 }
+
+@keyframes marquee-animation-reverse {
+  from {
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  to {
+    transform: translate3d(0%, 0, 0);
+  }
+}
+
