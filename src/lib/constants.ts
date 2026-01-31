@@ -16,6 +16,16 @@ import {
   Project15,
   Project16,
   Project17,
+  Agence1Main,
+  Agence3Main,
+  AgenceBlankMain,
+  Agence10main,
+  Agence6Main,
+  Agence5Main,
+  Agence9Main,
+  Agence2Main,
+  Agence8Main,
+  Agence11main,
 } from '../assets'
 
 export const projects = [
@@ -79,5 +89,103 @@ export const projects = [
     row_id: 9,
     item_1: { src: Project17, title: 'Fruité', year: 2019 },
     item_2: null,
+  },
+]
+
+export const agenceList = [
+  {
+    position: 'Directeur principal',
+    name: 'Carl Godbout',
+    image: Agence1Main,
+  },
+  {
+    position: 'Conceptrice rédactrice',
+    name: 'Camille Brière',
+    image: Agence3Main,
+  },
+  {
+    position: 'Conseillère principale',
+    name: 'Stéphanie Brunelle',
+    image: AgenceBlankMain,
+  },
+  {
+    position: 'VPP et directeur général',
+    name: 'Pierre-Luc Paiement',
+    image: Agence10main,
+  },
+  {
+    position: 'Directrice artistique',
+    name: 'Mélanie Laviolette',
+    image: Agence6Main,
+  },
+  {
+    position: 'Directrice de la stratégie',
+    name: 'Michèle Riendeau',
+    image: Agence5Main,
+  },
+  {
+    position: 'Directrice conseil',
+    name: 'Meggie Lavoie',
+    image: AgenceBlankMain,
+  },
+  {
+    position: 'Directeur artistique',
+    name: 'Alex Sauvageau',
+    image: AgenceBlankMain,
+  },
+  {
+    position: 'Conseiller',
+    name: 'Philippe Perreault',
+    image: AgenceBlankMain,
+  },
+  {
+    position: 'Stratège',
+    name: 'Béatrice Roussin',
+    image: AgenceBlankMain,
+  },
+  {
+    position: 'Conseillère',
+    name: 'Lou Gravel-Jean',
+    image: AgenceBlankMain,
+  },
+  {
+    position: 'Planificateur stratégique principal',
+    name: 'Olivier Roeyaerts',
+    image: AgenceBlankMain,
+  },
+  {
+    position: 'Conseillère',
+    name: 'Hélène Conti',
+    image: AgenceBlankMain,
+  },
+  {
+    position: 'Opérations et développement des affaires',
+    name: 'Maëlle Jacot-Descombes',
+    image: AgenceBlankMain,
+  },
+  {
+    position: 'Directeur artistique',
+    name: 'Julien Poisson',
+    image: AgenceBlankMain,
+  },
+  {
+    position: 'Directrice principale',
+    name: 'Isabelle Beauchemin',
+    image: Agence9Main,
+  },
+  {
+    position: 'Directeur artistique',
+    name: 'Olivier Duclos',
+    image: Agence2Main,
+  },
+  {
+    position: 'Directeur de création adjoint',
+    name: 'Joël Letarte',
+    image: Agence8Main,
+  },
+  {
+    position: 'Directeur de création adjoint',
+    name: 'Sébastien Roy',
+    image: Agence11main,
   },
 ]

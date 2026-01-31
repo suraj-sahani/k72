@@ -15,6 +15,10 @@ import Agence5Main from './agence/agence_5.jpg'
 import Agence6Main from './agence/agence_6.jpg'
 import Agence7Main from './agence/agence_7.jpg'
 import Agence8Main from './agence/agence_8.jpg'
+import Agence9Main from './agence/agence_9.jpg'
+import Agence10main from './agence/agence_10.jpg'
+import Agence11main from './agence/agence_11.jpg'
+import AgenceBlankMain from './agence/agence_blank_main.jpg'
 
 import NavProjectThumb1 from './nav/project_thumb.png'
 import NavProjectThumb2 from './nav/project_thumb_2.jpg'
@@ -58,6 +62,10 @@ export {
   Agence6Main,
   Agence7Main,
   Agence8Main,
+  Agence9Main,
+  Agence10main,
+  Agence11main,
+  AgenceBlankMain,
   NavProjectThumb1,
   NavProjectThumb2,
   NavAgenceThumb1,
