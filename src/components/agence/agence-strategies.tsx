@@ -60,7 +60,7 @@ export default function AgenceStrategies() {
           <span className="mx-20 text-[2vw] text-white">Stratège</span>
         </div>
       </div>
-      <div className="absolute top-[50%] left-[50%] z-2 h-3/4 w-150 -translate-x-[50%] -translate-y-[50%] overflow-hidden rounded-2xl">
+      <div className="absolute top-[50%] left-[50%] z-2 h-135 w-[90vw] -translate-x-[50%] -translate-y-[50%] overflow-hidden rounded-2xl md:h-210 md:w-150">
         <img src="/src/assets/agence/agence_blank_main.jpg" />
       </div>
     </div>
