@@ -23,12 +23,10 @@ const HeroText = () => {
     const ellipse = document.querySelector(
       '.orbit-ellipse'
     ) as SVGGeometryElement | null
-    const svg = document.querySelector('.orbit-svg') as SVGElement | null
+
     if (ellipse) {
       // getTotalLength is available on SVGGeometryElement (ellipse)
-      const len = (ellipse as any).getTotalLength
-        ? (ellipse as any).getTotalLength()
-        : 1000
+      const len = ellipse?.getTotalLength() || 1000
       // Configure dasharray to create a moving dash effect
       gsap.set(ellipse, {
         strokeDasharray: `${Math.round(len * 0.85)} ${Math.round(len * 0.15)}`,
