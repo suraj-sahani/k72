@@ -1,5 +1,4 @@
-import { useRef } from 'react'
-import { useGSAP } from '@gsap/react'
+import { useRef, useEffect } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/all'
 gsap.registerPlugin(ScrollTrigger)
@@ -11,13 +10,18 @@ export default function AgenceHero({ agenceImageThumbs }: Props) {
   const agenceImageContainerRef = useRef<HTMLDivElement>(null)
   const agenceImageRef = useRef<HTMLImageElement>(null)
 
-  useGSAP(() => {
-    gsap.to(agenceImageContainerRef.current, {
-      scrollTrigger: {
+  useEffect(() => {
+    const mm = gsap.matchMedia()
+
+    // Desktop: pin the container and scrub through images based on scroll progress
+    mm.add('(min-width: 768px)', () => {
+      if (!agenceImageContainerRef.current) return
+
+      const st = ScrollTrigger.create({
         trigger: agenceImageContainerRef.current,
         start: 'top 30%',
         end: 'top -60%',
-        pin: true,
+        pin: agenceImageContainerRef.current,
         pinSpacing: true,
         pinReparent: true,
         pinType: 'transform',
@@ -30,16 +34,48 @@ export default function AgenceHero({ agenceImageThumbs }: Props) {
             progress * (agenceImageThumbs.length - 1)
           )
 
-          agenceImageRef.current!.src = agenceImageThumbs[imageIndex]
+          if (agenceImageRef.current)
+            agenceImageRef.current.src = agenceImageThumbs[imageIndex]
         },
-      },
+      })
+
+      return () => st.kill()
     })
-  })
+
+    // Mobile: keep container static and run an automatic slideshow
+    mm.add('(max-width: 767px)', () => {
+      if (!agenceImageRef.current) return
+
+      // ensure visible
+      agenceImageRef.current.style.opacity = '1'
+
+      let idx = 0
+      const slideDuration = 0.3 // crossfade duration
+      const interval = 2 // seconds between swaps (including crossfade)
+
+      const tl = gsap.timeline({
+        repeat: -1,
+        repeatDelay: Math.max(0, interval - slideDuration),
+      })
+
+      tl.to(agenceImageRef.current, { opacity: 0, duration: slideDuration / 2 })
+        .call(() => {
+          idx = (idx + 1) % agenceImageThumbs.length
+          if (agenceImageRef.current)
+            agenceImageRef.current.src = agenceImageThumbs[idx]
+        })
+        .to(agenceImageRef.current, { opacity: 1, duration: slideDuration / 2 })
+
+      return () => tl.kill()
+    })
+
+    return () => mm.revert()
+  }, [agenceImageThumbs])
 
   return (
     <div className="hero_section p-2">
       <div
-        className="absolute top-[18vw] left-[30vw] h-[40vw] w-[30vw] overflow-hidden rounded-4xl md:h-[20vw] md:w-[15vw]"
+        className="pointer-events-none absolute top-[18vw] left-[30vw] h-[40vw] w-[30vw] overflow-hidden rounded-4xl md:h-[20vw] md:w-[15vw]"
         ref={agenceImageContainerRef}
       >
         <img
