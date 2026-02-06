@@ -11,6 +11,7 @@ import {
 } from '../../assets'
 import DrawerLinkItem from './drawer-link-item'
 import Logo from './logo'
+import Timer from './timer'
 
 const navColorMap = {
   '/': 'white',
@@ -224,6 +225,9 @@ const Navbar = () => {
               ))}
             </ul>
           </div>
+        </div>
+        <div className="absolute bottom-0 z-9999999 flex h-fit w-full justify-between p-2 text-white">
+          <Timer />
         </div>
       </div>
     </>
