@@ -1,15 +1,12 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import App from "./App.tsx";
-import { BrowserRouter } from "react-router-dom";
-import { NavProvider } from "./components/navbar/context.tsx";
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import App from './App.tsx'
+import { BrowserRouter } from 'react-router-dom'
 
-createRoot(document.getElementById("root")!).render(
+createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
-      <NavProvider>
-        <App />
-      </NavProvider>
+      <App />
     </BrowserRouter>
   </StrictMode>
-);
+)
