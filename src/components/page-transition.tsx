@@ -61,12 +61,12 @@ const PageTransition = ({ children }: Props) => {
         ref={transitionContainerRef}
         style={{ display: 'none' }}
       >
-        <div className="flex h-full w-full">
-          <div className="stair h-full w-1/5 bg-black" />
-          <div className="stair h-full w-1/5 bg-black" />
-          <div className="stair h-full w-1/5 bg-black" />
-          <div className="stair h-full w-1/5 bg-black" />
-          <div className="stair h-full w-1/5 bg-black" />
+        <div className="flex h-screen w-full">
+          <div className="stair h-screen w-1/5 bg-black" />
+          <div className="stair h-screen w-1/5 bg-black" />
+          <div className="stair h-screen w-1/5 bg-black" />
+          <div className="stair h-screen w-1/5 bg-black" />
+          <div className="stair h-screen w-1/5 bg-black" />
         </div>
       </div>
       <main>

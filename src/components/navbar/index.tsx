@@ -1,4 +1,6 @@
-import { useRef } from 'react'
+import gsap from 'gsap'
+import { useRef, useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import {
   NavAgenceThumb1,
   NavAgenceThumb2,
@@ -7,33 +9,27 @@ import {
   NavProjectThumb1,
   NavProjectThumb2,
 } from '../../assets'
-import { useNav } from './context'
 import Logo from './logo'
-import gsap from 'gsap'
-import { useLocation } from 'react-router-dom'
+
+const navColorMap = {
+  '/': 'white',
+  '/agence': 'black',
+  '/projects': 'black',
+}
 
 const Navbar = () => {
-  const { setNavOpen } = useNav()
   const { pathname } = useLocation()
   const drawerRef = useRef<HTMLDivElement>(null)
   const linkContainerRef = useRef<HTMLDivElement>(null)
   const transitionContainerRef = useRef<HTMLDivElement>(null)
 
-  const navColorMap = {
-    '/': 'white',
-    '/agence': 'black',
-    '/projects': 'black',
-  }
-
   const navColor = navColorMap[pathname as keyof typeof navColorMap] || 'white'
-
-  console.log(pathname)
 
   function handleStairsAnimation(type: 'open' | 'close') {
     if (type === 'open') {
-      setNavOpen(true)
       // create a fresh timeline for each navigation so tweens don't accumulate
       const tl = gsap.timeline()
+
       // show overlay immediately
       tl.set(transitionContainerRef.current, { display: 'block' })
 
@@ -58,10 +54,17 @@ const Navbar = () => {
         opacity: 1,
         duration: 0.3,
       })
+
+      // Remove body overflow
+      tl.to(document.body, {
+        overflow: 'hidden',
+      })
     } else {
-      setNavOpen(false)
       const tl = gsap.timeline()
 
+      tl.to(document.body, {
+        overflow: 'auto',
+      })
       tl.to(linkContainerRef.current, {
         opacity: 0,
         duration: 0.3,
@@ -108,16 +111,16 @@ const Navbar = () => {
 
       {/* Stairs */}
       <div
-        className="nav_stair_container fixed z-10 h-screen w-full"
+        className="nav_stair_container absolute z-10 h-screen w-full"
         ref={transitionContainerRef}
         style={{ display: 'none' }}
       >
-        <div className="flex h-full w-full">
-          <div className="nav_stair h-full w-1/5 bg-black" />
-          <div className="nav_stair h-full w-1/5 bg-black" />
-          <div className="nav_stair h-full w-1/5 bg-black" />
-          <div className="nav_stair h-full w-1/5 bg-black" />
-          <div className="nav_stair h-full w-1/5 bg-black" />
+        <div className="flex h-screen w-full">
+          <div className="nav_stair h-screen w-1/5 bg-black" />
+          <div className="nav_stair h-screen w-1/5 bg-black" />
+          <div className="nav_stair h-screen w-1/5 bg-black" />
+          <div className="nav_stair h-screen w-1/5 bg-black" />
+          <div className="nav_stair h-screen w-1/5 bg-black" />
         </div>
       </div>
       {/* Nav Drawer */}
