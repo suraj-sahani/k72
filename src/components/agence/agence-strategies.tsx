@@ -3,6 +3,7 @@ import { useGSAP } from '@gsap/react'
 
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/all'
+import { AgenceBlankMain } from '../../assets'
 gsap.registerPlugin(ScrollTrigger)
 
 export default function AgenceStrategies() {
@@ -61,7 +62,7 @@ export default function AgenceStrategies() {
         </div>
       </div>
       <div className="absolute top-[50%] left-[50%] z-2 h-135 w-[90vw] -translate-x-[50%] -translate-y-[50%] overflow-hidden rounded-2xl md:h-210 md:w-150">
-        <img src="/src/assets/agence/agence_blank_main.jpg" />
+        <img src={AgenceBlankMain} />
       </div>
     </div>
   )
