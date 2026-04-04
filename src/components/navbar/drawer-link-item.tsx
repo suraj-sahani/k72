@@ -51,6 +51,10 @@ const DrawerLinkItem = ({ item }: Props) => {
     tl.to('.link_container', {
       opacity: 0,
     })
+
+    tl.to(document.body, {
+      overflow: 'auto',
+    })
     // handleLinkClick()
   }
   return (
