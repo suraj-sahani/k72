@@ -17,7 +17,7 @@ const navColorMap = {
   '/': 'white',
   '/agence': 'black',
   '/projects': 'black',
-  '/contact': 'black',
+  '/contact': 'white',
   '/blogue': 'white',
 }
 
