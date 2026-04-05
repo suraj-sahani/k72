@@ -17,7 +17,7 @@ const navColorMap = {
   '/': 'white',
   '/agence': 'black',
   '/projects': 'black',
-  '/contact': 'black',
+  '/contact': 'white',
   '/blogue': 'white',
 }
 
@@ -198,7 +198,10 @@ const Navbar = () => {
       >
         <div className="relative h-full w-full">
           <div className="absolute top-1 left-1">
-            <Logo navColor="white" />
+            <Logo
+              navColor="white"
+              onClick={() => handleStairsAnimation('close')}
+            />
           </div>
           <div className="absolute top-1 right-2 z-20">
             <div

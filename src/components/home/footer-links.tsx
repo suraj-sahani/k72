@@ -1,22 +1,22 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
 
 const FooterLinks = () => {
   return (
     <div className="font-lausanne-regular flex items-center justify-center gap-2">
       <Link
         to="/projects"
-        className="text-[6.5vw] hover:text-primary hover:border-primary uppercase border-[3px] leading-[5vw] border-white rounded-full px-[0.3em] transition-colors duration-100 ease-in pb-0 pt-[0.22em]"
+        className="hover:text-primary hover:border-primary rounded-full border-[3px] border-white px-[0.3em] pt-[0.22em] pb-0 text-[5.5vw] leading-[4vw] uppercase transition-colors duration-100 ease-in"
       >
         Projects
       </Link>
       <Link
         to="/agence"
-        className="text-[6.5vw] hover:text-primary hover:border-primary uppercase border-[3px] leading-[5vw] border-white rounded-full px-[0.3em] transition-colors duration-100 ease-in pb-0 pt-[0.22em]"
+        className="hover:text-primary hover:border-primary rounded-full border-[3px] border-white px-[0.3em] pt-[0.22em] pb-0 text-[5.5vw] leading-[4vw] uppercase transition-colors duration-100 ease-in"
       >
         Agence
       </Link>
     </div>
-  );
-};
+  )
+}
 
-export default FooterLinks;
+export default FooterLinks
