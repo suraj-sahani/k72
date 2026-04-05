@@ -1,9 +1,40 @@
 import { useRef } from 'react'
 import TiltedMarquee from '../components/tilted-marquee'
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/all'
 
+gsap.registerPlugin(ScrollTrigger, useGSAP)
 export default function Contact() {
-  const containerRef = useRef(null)
-  const iterationRef = useRef(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const contentRef = useRef<HTMLDivElement>(null)
+
+  useGSAP(
+    () => {
+      if (contentRef.current) {
+        // Measure the height of a single instance of the content
+        const contentHeight = contentRef.current.offsetHeight
+
+        ScrollTrigger.create({
+          trigger: containerRef.current,
+          start: 'top top',
+          end: 'bottom bottom',
+          onUpdate: (self) => {
+            const scroll = self.scroll()
+
+            // 1. Only loop if scrolling DOWN (direction: 1)
+            // 2. Loop if we've scrolled past the first full instance of the content
+            if (self.direction === 1 && scroll >= contentHeight) {
+              // Jump back to the very top (0 or 1 pixel)
+              // This creates the illusion of infinite downward scroll
+              self.scroll(1)
+            }
+          },
+        })
+      }
+    },
+    { scope: containerRef }
+  ) // Scope ensures animations are cleaned up within this ref
 
   const PageContent = () => (
     <section className="h-screen w-full bg-black text-white">
@@ -90,5 +121,20 @@ export default function Contact() {
     </section>
   )
 
-  return <PageContent />
+  return (
+    <div ref={containerRef} className="bg-black">
+      {/* 
+          We render the content twice.
+          The 'contentRef' on the first one allows us to measure 
+          the exact point where the loop should happen.
+      */}
+      <div ref={contentRef}>
+        <PageContent />
+      </div>
+
+      <div>
+        <PageContent />
+      </div>
+    </div>
+  )
 }
