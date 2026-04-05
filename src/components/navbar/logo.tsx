@@ -1,9 +1,21 @@
 import { Link } from 'react-router-dom'
 
-const Logo = ({ navColor = 'white' }: { navColor: string }) => {
+type Props = {
+  navColor: string
+  onClick?: () => void
+}
+const Logo = ({ navColor = 'white', onClick }: Props) => {
   return (
     <div className="w-24 p-2">
-      <Link to="/">
+      <Link
+        to="/"
+        onClick={() => {
+          if (onClick) {
+            console.log('Closing nav')
+            onClick()
+          }
+        }}
+      >
         <svg
           className="w-full"
           xmlns="http://www.w3.org/2000/svg"
