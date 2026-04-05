@@ -1,8 +1,12 @@
+import { useRef } from 'react'
 import TiltedMarquee from '../components/tilted-marquee'
 
 export default function Contact() {
-  return (
-    <div className="h-screen w-full bg-black text-white">
+  const containerRef = useRef(null)
+  const iterationRef = useRef(null)
+
+  const PageContent = () => (
+    <section className="h-screen w-full bg-black text-white">
       <h1 className="font-lausanne-regular pt-[3em] text-center text-[8vw] uppercase md:pt-[0.4em] [&_div]:-mt-[0.6em]">
         <div>
           <span>Pour</span>
@@ -40,6 +44,51 @@ export default function Contact() {
         </address>
       </div>
       <TiltedMarquee />
-    </div>
+
+      <div className="socials mt-10">
+        <h2 className="mb-4 text-center text-xs uppercase">Suivez-nous</h2>
+
+        <ul className="[&_li]:hover:border-primary [&_li]:hover:text-primary flex items-center justify-center gap-4 text-center [&_li]:rounded-full [&_li]:border-2 [&_li]:border-white [&_li]:px-4 [&_li]:text-[10vw] [&_li]:leading-[0.9] [&_li]:transition-colors [&_li]:duration-200 [&_li]:ease-in md:[&_li]:text-[4vw]">
+          <li>
+            <a
+              href="https://www.facebook.com/K72.ca/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span aria-hidden="true">FB</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.instagram.com/k72_creation/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span aria-hidden="true">IG</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/company/k72"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span aria-hidden="true">IN</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.behance.net/agenceK72"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span aria-hidden="true">BE</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
   )
+
+  return <PageContent />
 }
