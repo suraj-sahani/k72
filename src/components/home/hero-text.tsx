@@ -40,41 +40,56 @@ const HeroText = () => {
     }
   }, [])
   return (
-    <div className="font-lausanne-medium mt-72 pt-5 text-center lg:mt-0">
-      <div className="hero_text_item flex items-center justify-center text-[12vw] leading-[10vw] uppercase lg:text-[9.5vw] lg:leading-[8vw]">
-        L'étincelle
-      </div>
-      <div className="hero_text_item flex items-start justify-center text-[12vw] leading-[10vw] uppercase lg:text-[9.5vw] lg:leading-[8vw]">
-        qui
-        <div className="h-[7vw] w-[16vw] overflow-hidden rounded-full">
-          <VideoShowcase src="/k72_hero.mp4" />
+    <div className="font-lausanne-medium mt-72 flex flex-1 flex-col justify-between pt-5 text-center lg:mt-0">
+      <div>
+        <div className="hero_text_item flex items-center justify-center text-[12vw] leading-[10vw] uppercase lg:text-[9.5vw] lg:leading-[8vw]">
+          L'étincelle
         </div>
-        génère
-      </div>
-      <div className="hero_text_item flex items-center justify-center text-[12vw] leading-[10vw] uppercase lg:text-[9.5vw] lg:leading-[8vw]">
-        <div className="relative z-10 inline-flex items-center justify-center whitespace-nowrap">
-          <span>la</span>
-          <div className="relative">
-            <svg
-              viewBox="0 0 100 30"
-              className="orbit-svg fill-primary stroke-primary pointer-events-none absolute inset-0 h-full w-full"
-              preserveAspectRatio="xMidYMid meet"
-              style={{ overflow: 'visible' }}
-            >
-              <ellipse
-                className="orbit-ellipse stroke-primary"
-                cx="55%"
-                cy="40%"
-                rx="100%"
-                ry="54%"
-                strokeWidth="0.5"
-                fill="none"
-                strokeLinecap="round"
-              />
-            </svg>
-            <span className="ml-8">créativité</span>
+        <div className="hero_text_item flex items-start justify-center text-[12vw] leading-[10vw] uppercase lg:text-[9.5vw] lg:leading-[8vw]">
+          qui
+          <div className="h-[7vw] w-[16vw] overflow-hidden rounded-full">
+            <VideoShowcase src="/k72_hero.mp4" />
+          </div>
+          génère
+        </div>
+        <div className="hero_text_item flex items-center justify-center text-[12vw] leading-[10vw] uppercase lg:text-[9.5vw] lg:leading-[8vw]">
+          <div className="relative z-10 inline-flex items-center justify-center whitespace-nowrap">
+            <span>la</span>
+            <div className="relative">
+              <svg
+                viewBox="0 0 100 30"
+                className="orbit-svg fill-primary stroke-primary pointer-events-none absolute inset-0 h-full w-full"
+                preserveAspectRatio="xMidYMid meet"
+                style={{ overflow: 'visible' }}
+              >
+                <ellipse
+                  className="orbit-ellipse stroke-primary"
+                  cx="55%"
+                  cy="40%"
+                  rx="100%"
+                  ry="54%"
+                  strokeWidth="0.5"
+                  fill="none"
+                  strokeLinecap="round"
+                />
+              </svg>
+              <span className="ml-8">créativité</span>
+            </div>
           </div>
         </div>
+      </div>
+
+      <div className="flex w-full justify-end pb-10">
+        <p
+          className="max-w-60 text-start text-xs"
+          style={{ textIndent: '5em' }}
+        >
+          K72 est une agence qui pense chaque action pour nourrir la marque.
+          Demain, dans 5 mois et dans 5 ans. On cherche la friction qui crée
+          l’étincelle pour générer de l’émotion. Pour assurer une relation
+          honnête, on est sans filtre, on dit ce qui doit être dit, on fait ce
+          qui doit être fait.
+        </p>
       </div>
     </div>
   )
